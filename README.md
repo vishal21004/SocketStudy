@@ -1,3 +1,5 @@
+## VISHAL M.A
+## 212222230177
 # Ex.No:1a  			Study of Socket Programming
 
 ## Aim: 
