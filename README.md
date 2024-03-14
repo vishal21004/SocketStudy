@@ -1,5 +1,7 @@
-## VISHAL M.A
-## 212222230177
+## NAME: VISHAL M.A
+## REGISTER NUMBER:212222230177
+
+
 # Ex.No:1a  			Study of Socket Programming
 
 ## Aim: 
@@ -54,6 +56,42 @@ Socket programming finds applications in various domains, including web developm
 3.	File Transfer Protocol: Protocols like FTP (File Transfer Protocol) utilize socket programming for transferring files between a client and a server.
 4.	Networked Games: Online multiplayer games rely on socket programming to facilitate communication between game clients and servers.
 5.	RPC mechanisms: which allow processes to execute code on a remote server, often use socket programming for communication.
+
+## PROGRAM
+## CLIENT:
+~~~
+import socket
+from datetime import datetime
+s=socket.socket()
+s.bind(('localhost',8000))
+s.listen(5)
+c,addr=s.accept()
+print("Client Address : ",addr)
+now = datetime.now()
+c.send(now.strftime("%d/%m/%Y %H:%M:%S").encode())
+ack=c.recv(1024).decode()
+if ack:
+ print(ack)
+c.close()
+~~~
+## SERVER:
+~~~
+import socket
+s=socket.socket()
+s.connect(('localhost',8000))
+print(s.getsockname())
+print(s.recv(1024).decode())
+s.send("acknowledgement recived from the server".encode())
+~~~
+## OUTPUT:
+## CLIENT:
+![client](https://github.com/vishal21004/SocketStudy/assets/119560110/278502bd-0125-4ca3-a446-ebbb72b83065)
+
+## SERVER:
+![ser](https://github.com/vishal21004/SocketStudy/assets/119560110/69738e66-7e73-4994-a594-33bf2ac89c2d)
+
+
+
 
 
 ## Result:
